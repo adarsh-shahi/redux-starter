@@ -1,5 +1,4 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-
 const carsSlice = createSlice({
 	name: "cars",
 	initialState: {
@@ -12,14 +11,14 @@ const carsSlice = createSlice({
 		},
 		addCar(state, action) {
 			state.cars.push({
-				id: nanoid,
+				id: nanoid(),
 				name: action.payload.name,
 				cost: action.payload.cost,
 			});
 		},
 		removeCar(state, action) {
 			const index = state.cars.findIndex((car) => car.id === action.payload);
-			state.splice(index, 1);
+			state.cars.splice(index, 1);
 		},
 	},
 });
